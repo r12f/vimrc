@@ -6,10 +6,6 @@ set VIM_CONFIG_ROOT=%VIM_CONFIG_ROOT:~0,-1%
 
 echo Install VIM configuration ...
 
-:: Update to latest VIM configuration
-echo Update to latest VIM configuration ...
-cd "%VIM_CONFIG_ROOT%" && git pull && git submodule update --init
-
 :: Updating system VIM configuration
 echo Updating system VIM configuration ...
 call :CreateSymbolLinkWithBackup %VIM_CONFIG_ROOT%\vimrc %USERPROFILE%\_vimrc

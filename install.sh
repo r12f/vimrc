@@ -4,10 +4,6 @@ VIMRC_HOME=$(cd "$(dirname "$0")"; pwd)
 
 echo "Install VIM configuration ..."
 
-# Update to the latest version
-echo "Update to latest VIM configuration ..."
-cd "$VIMRC_HOME" && git pull && git submodule update --init
-
 function CreateSymbolLinkWithBackup {
     local source_file=$1
     local dest_file=$2

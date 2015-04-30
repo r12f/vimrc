@@ -60,7 +60,7 @@ else
     call vundle#begin()
 endif
 
-Plugin 'gmarik/vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -68,9 +68,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'dgryski/vim-godef'
-Plugin 'Blackrush/vim-gocode'
+Plugin 'fatih/vim-go'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'PProvost/vim-ps1'
@@ -347,6 +347,8 @@ map <leader>pp :setlocal paste!<cr>
 " - 'Yggdroot/indentLine'
 " - 'majutsushi/tagbar'
 " - 'kien/rainbow_parentheses.vim'
+" - 'SirVer/ultisnips'
+" - 'honza/vim-snippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufWrite * :call DeleteTrailingWS()                     " Remove trailing white spaces for all types of files
 
@@ -371,6 +373,12 @@ let g:tagbar_width = 30                                         " Tagbar width
 let g:tagbar_expand = 1                                         " Expand the tags
 nmap <leader>tb :TagbarToggle<CR>
 
+" Utimate Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"                             " :UltiSnipsEdit will split window.
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " IDE for vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -386,42 +394,8 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " IDE for Go
-"
-" Related plugins:
-" - 'cespare/vim-golang'
-" - 'majutsushi/tagbar'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:gofmt_command = "gofmt -tabs=false -tabwidth=4"
-autocmd BufWritePre *.go :Fmt                                   " Format and organize the code before writing to disk
-
 autocmd! BufEnter *.go :TagbarOpen
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Helper functions

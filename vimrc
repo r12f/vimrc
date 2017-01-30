@@ -65,7 +65,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'majutsushi/tagbar'
-Plugin 'bling/vim-airline'
+" Temporarily disable vim-airline, because of serious performance degradation during startup.
+" Plugin 'bling/vim-airline'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'fatih/vim-go'
@@ -136,6 +137,7 @@ au BufReadPost *.htm syntax on              " Fixing syntax highlighting when so
 " Set encoding
 if has("multi_byte")
     "set bomb
+    set encoding=utf-8
     set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,sjis,euc-kr,ucs-2le,latin1
     " CJK environment detection and corresponding setting
     if v:lang =~ "^zh_CN"

@@ -73,7 +73,6 @@ Plugin 'fatih/vim-go'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'mattn/emmet-vim'
-Plugin 'Valloric/MatchTagAlways'
 Plugin 'PProvost/vim-ps1'
 
 call vundle#end()
